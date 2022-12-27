@@ -21,3 +21,10 @@ I haven't checked whether my current phone can handle that.
 - `new-psalter`: [the new Psalter](https://thepsalter.net/)
 - `psalter`: original [1912 Psalter](http://books.google.com/books?id=Wm0Cl8tI8KgC) from Google books, interspersed with [Grotenhuis transcriptions](https://digitalcollections.dordt.edu/grotenhuis_keyboard/342/)
 - `glory-to-god.pdf`: [Ere zij God](https://media.ldscdn.org/pdf/music/hymns-dutch/2003-01-1430-praise-to-god-nld.pdf) from a Mormon website
+## Technical Details
+
+Scripts and stuff:
+
+```
+pdftk psalter.pdf cat 29-30 output pages29-30.pdf
+```
