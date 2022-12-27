@@ -19,7 +19,7 @@ I haven't checked whether my current phone can handle that.
 
 - `confessions-church-order`: [Doctrinal Standards, Liturgy, and Church Order](http://www.prca.org/component/jdownloads/finish/11/128?Itemid=0) from the PRCA website
 - `new-psalter`: [the new Psalter](https://thepsalter.net/)
-- `psalter`: original [1912 Psalter](http://books.google.com/books?id=Wm0Cl8tI8KgC) from Google books, interspersed with [Grotenhuis transcriptions](https://digitalcollections.dordt.edu/grotenhuis_keyboard/342/)
+- `psalter`: original [1912 Psalter](http://books.google.com/books?id=Wm0Cl8tI8KgC) from Google books, interspersed with [Grotenhuis transcriptions](https://digitalcollections.dordt.edu/grotenhuis_keyboard/342/) from Dordt University and [new scans](https://github.com/jrvermeer/PsalterFiles/tree/master/1912/Score) from the Android app.  Psalters 414-434 are from the Android app, so many of them are missing verses.
 - `glory-to-god.pdf`: [Ere zij God](https://media.ldscdn.org/pdf/music/hymns-dutch/2003-01-1430-praise-to-god-nld.pdf) from a Mormon website
 ## Technical Details
 
@@ -27,4 +27,11 @@ Scripts and stuff:
 
 ```
 pdftk psalter.pdf cat 29-30 output pages29-30.pdf
+```
+
+Download Android images and convert to pdf.
+```
+for f in {414..434}; do wget "https://raw.githubusercontent.com/jrvermeer/PsalterFiles/master/1912/Score/_$f.webp"; done
+for f in *.webp ; do convert "$f" -page letter -gravity northwest "${f%.webp}.pdf"; done
+for f in *.webp ; do convert "$f" -page letter "${f%.webp}.pdf"; done
 ```
